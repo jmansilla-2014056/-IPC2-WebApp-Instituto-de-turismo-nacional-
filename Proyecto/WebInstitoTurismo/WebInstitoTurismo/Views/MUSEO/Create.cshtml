@@ -1,0 +1,96 @@
+﻿@model WebInstitoTurismo.Models.MUSEO
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <div class="form-horizontal">
+                <h4>MUSEO</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EMPRESA.NOMBRE, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EMPRESA.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EMPRESA.NOMBRE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EMPRESA.DIRECCION, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EMPRESA.DIRECCION, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EMPRESA.DIRECCION, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EMPRESA.TELEFONO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input id="EMPRESA_TELEFONO" name="EMPRESA.TELEFONO" type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 9999-9999&quot;" data-mask="">
+                        @Html.ValidationMessageFor(model => model.EMPRESA.TELEFONO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EMPRESA.CORREO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EMPRESA.CORREO, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EMPRESA.CORREO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EMPRESA.ID_REGION, "EMPRESA_ID_REGION", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("EMPRESA_ID_REGION", null, htmlAttributes: new { @class = "form-control", @id = "EMPRESA_ID_REGION", @Name = "EMPRESA.ID_REGION" })
+                        @Html.ValidationMessageFor(model => model.EMPRESA.ID_REGION, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HORA_INICIO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input id="HORA_INICIO" name="HORA_INICIO" type="text" class="form-control" data-inputmask="'alias': 'hh:mm:ss'" data-mask="">
+                        @Html.ValidationMessageFor(model => model.HORA_INICIO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group input-group-sm">
+                    @Html.LabelFor(model => model.HORA_FIN, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input id="HORA_FIN" name="HORA_FIN" type="text" class="form-control" data-inputmask="'alias': 'hh:mm:ss'" data-mask="">
+                        @Html.ValidationMessageFor(model => model.HORA_FIN, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TARIFA, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TARIFA, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TARIFA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

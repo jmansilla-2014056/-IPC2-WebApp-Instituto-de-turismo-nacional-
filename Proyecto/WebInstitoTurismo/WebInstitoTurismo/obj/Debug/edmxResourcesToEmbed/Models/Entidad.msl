@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="INSTITUTO_DE_TURISMOModelStoreContainer" CdmEntityContainer="INSTITUTO_DE_TURISMOEntities">
+    <EntitySetMapping Name="ADMINISTRADOR">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.ADMINISTRADOR">
+        <MappingFragment StoreEntitySet="ADMINISTRADOR">
+          <ScalarProperty Name="DPI" ColumnName="DPI" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="PASS" ColumnName="PASS" />
+          <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATALOGO_HOTEL">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.CATALOGO_HOTEL">
+        <MappingFragment StoreEntitySet="CATALOGO_HOTEL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VALIDACION" ColumnName="VALIDACION" />
+          <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+          <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATALOGO_RESTAURANTE">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.CATALOGO_RESTAURANTE">
+        <MappingFragment StoreEntitySet="CATALOGO_RESTAURANTE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VALIDACION" ColumnName="VALIDACION" />
+          <ScalarProperty Name="ID_RESTAURANTE" ColumnName="ID_RESTAURANTE" />
+          <ScalarProperty Name="ID_ESPECIALIDAD" ColumnName="ID_ESPECIALIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPRESA">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.EMPRESA">
+        <MappingFragment StoreEntitySet="EMPRESA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="APROBADO" ColumnName="APROBADO" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPRESA_RESTAURANTE">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.EMPRESA_RESTAURANTE">
+        <MappingFragment StoreEntitySet="EMPRESA_RESTAURANTE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HORA_I" ColumnName="HORA_I" />
+          <ScalarProperty Name="HORA_F" ColumnName="HORA_F" />
+          <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESPECIALIDAD">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.ESPECIALIDAD">
+        <MappingFragment StoreEntitySet="ESPECIALIDAD">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOTO_EMPRESA">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.FOTO_EMPRESA">
+        <MappingFragment StoreEntitySet="FOTO_EMPRESA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+          <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MUSEO">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.MUSEO">
+        <MappingFragment StoreEntitySet="MUSEO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HORA_INICIO" ColumnName="HORA_INICIO" />
+          <ScalarProperty Name="HORA_FIN" ColumnName="HORA_FIN" />
+          <ScalarProperty Name="TARIFA" ColumnName="TARIFA" />
+          <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECORRIDO">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.RECORRIDO">
+        <MappingFragment StoreEntitySet="RECORRIDO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="FECHA_I" ColumnName="FECHA_I" />
+          <ScalarProperty Name="FECHA_F" ColumnName="FECHA_F" />
+          <ScalarProperty Name="DPI" ColumnName="DPI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECORRIDO_EMPRESA">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.RECORRIDO_EMPRESA">
+        <MappingFragment StoreEntitySet="RECORRIDO_EMPRESA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_RECORRIDO" ColumnName="ID_RECORRIDO" />
+          <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGION">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.REGION">
+        <MappingFragment StoreEntitySet="REGION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROL">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.ROL">
+        <MappingFragment StoreEntitySet="ROL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICIO">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.SERVICIO">
+        <MappingFragment StoreEntitySet="SERVICIO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SITIO_TURISTICO">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.SITIO_TURISTICO">
+        <MappingFragment StoreEntitySet="SITIO_TURISTICO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_EMPRESA">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.TIPO_EMPRESA">
+        <MappingFragment StoreEntitySet="TIPO_EMPRESA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOTO_SITIO">
+      <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.FOTO_SITIO">
+        <MappingFragment StoreEntitySet="FOTO_SITIO">
+          <ScalarProperty Name="ID_SITIO" ColumnName="ID_SITIO" />
+          <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,48 @@
+﻿@model WebInstitoTurismo.Models.FOTO_SITIO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <div class="form-horizontal">
+                <h4>FOTO_SITIO</h4>
+                <hr />
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DIRECCION)
+                    </dt>
+
+                    <dd>
+                        <img src="@Url.Action("GetImage","FOTO_SITIO", new {id=Model.ID})" />
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TITULO)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TITULO)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SITIO_TURISTICO.NOMBRE)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SITIO_TURISTICO.NOMBRE)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

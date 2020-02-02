@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebInstitoTurismo.Models.MUSEO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="box"><div class="box-header with-border"><div class="box-body table-responsive no-padding"><table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HORA_INICIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HORA_FIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TARIFA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPRESA.NOMBRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HORA_INICIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HORA_FIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TARIFA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPRESA.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table></div></div></div>

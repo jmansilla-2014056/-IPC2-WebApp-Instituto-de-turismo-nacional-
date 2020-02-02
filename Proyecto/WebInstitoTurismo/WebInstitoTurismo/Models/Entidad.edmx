@@ -1,0 +1,1029 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="INSTITUTO_DE_TURISMOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMINISTRADOR">
+          <Key>
+            <PropertyRef Name="DPI" />
+          </Key>
+          <Property Name="DPI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="TELEFONO" Type="varchar" MaxLength="50" />
+          <Property Name="PASS" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ID_ROL" Type="int" />
+        </EntityType>
+        <EntityType Name="CATALOGO_HOTEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VALIDACION" Type="bit" />
+          <Property Name="ID_SERVICIO" Type="int" />
+          <Property Name="ID_EMPRESA" Type="int" />
+        </EntityType>
+        <EntityType Name="CATALOGO_RESTAURANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VALIDACION" Type="bit" />
+          <Property Name="ID_RESTAURANTE" Type="int" />
+          <Property Name="ID_ESPECIALIDAD" Type="int" />
+        </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="255" />
+          <Property Name="TELEFONO" Type="varchar" MaxLength="50" />
+          <Property Name="CORREO" Type="varchar" MaxLength="50" />
+          <Property Name="ESTADO" Type="bit" />
+          <Property Name="APROBADO" Type="bit" />
+          <Property Name="ID_TIPO" Type="int" />
+          <Property Name="ID_REGION" Type="int" />
+        </EntityType>
+        <EntityType Name="EMPRESA_RESTAURANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HORA_I" Type="time" Precision="7" />
+          <Property Name="HORA_F" Type="time" Precision="7" />
+          <Property Name="ID_EMPRESA" Type="int" />
+        </EntityType>
+        <EntityType Name="ESPECIALIDAD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="FOTO_EMPRESA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="255" />
+          <Property Name="TITULO" Type="varchar" MaxLength="50" />
+          <Property Name="ID_EMPRESA" Type="int" />
+        </EntityType>
+        <EntityType Name="FOTO_SITIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DIRECCION" Type="varbinary(max)" />
+          <Property Name="TITULO" Type="varchar" MaxLength="50" />
+          <Property Name="ID_SITIO" Type="int" />
+        </EntityType>
+        <EntityType Name="MUSEO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HORA_INICIO" Type="time" Precision="7" />
+          <Property Name="HORA_FIN" Type="time" Precision="7" />
+          <Property Name="TARIFA" Type="varchar" MaxLength="50" />
+          <Property Name="ID_EMPRESA" Type="int" />
+        </EntityType>
+        <EntityType Name="RECORRIDO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="FECHA_I" Type="datetime" />
+          <Property Name="FECHA_F" Type="datetime" />
+          <Property Name="DPI" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RECORRIDO_EMPRESA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_RECORRIDO" Type="int" />
+          <Property Name="ID_EMPRESA" Type="int" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SITIO_TURISTICO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="255" />
+          <Property Name="ID_REGION" Type="int" />
+        </EntityType>
+        <EntityType Name="TIPO_EMPRESA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__ADMINISTR__ID_RO__4BAC3F29">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
+          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ADMINISTRADOR">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CATALOGO___ID_EM__6E01572D">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="CATALOGO_HOTEL" Type="Self.CATALOGO_HOTEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATALOGO_HOTEL">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CATALOGO___ID_ES__6754599E">
+          <End Role="ESPECIALIDAD" Type="Self.ESPECIALIDAD" Multiplicity="0..1" />
+          <End Role="CATALOGO_RESTAURANTE" Type="Self.CATALOGO_RESTAURANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESPECIALIDAD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATALOGO_RESTAURANTE">
+              <PropertyRef Name="ID_ESPECIALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CATALOGO___ID_RE__66603565">
+          <End Role="EMPRESA_RESTAURANTE" Type="Self.EMPRESA_RESTAURANTE" Multiplicity="0..1" />
+          <End Role="CATALOGO_RESTAURANTE" Type="Self.CATALOGO_RESTAURANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA_RESTAURANTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATALOGO_RESTAURANTE">
+              <PropertyRef Name="ID_RESTAURANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CATALOGO___ID_SE__6D0D32F4">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="0..1" />
+          <End Role="CATALOGO_HOTEL" Type="Self.CATALOGO_HOTEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATALOGO_HOTEL">
+              <PropertyRef Name="ID_SERVICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPRESA__ID_REGI__5AEE82B9">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="0..1" />
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPRESA">
+              <PropertyRef Name="ID_REGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPRESA__ID_TIPO__59FA5E80">
+          <End Role="TIPO_EMPRESA" Type="Self.TIPO_EMPRESA" Multiplicity="0..1" />
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPRESA">
+              <PropertyRef Name="ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPRESA_R__ID_EM__60A75C0F">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="EMPRESA_RESTAURANTE" Type="Self.EMPRESA_RESTAURANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPRESA_RESTAURANTE">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FOTO_EMPR__ID_EM__5DCAEF64">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="FOTO_EMPRESA" Type="Self.FOTO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FOTO_EMPRESA">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FOTO_SITI__ID_SI__160F4887">
+          <End Role="SITIO_TURISTICO" Type="Self.SITIO_TURISTICO" Multiplicity="0..1" />
+          <End Role="FOTO_SITIO" Type="Self.FOTO_SITIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SITIO_TURISTICO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FOTO_SITIO">
+              <PropertyRef Name="ID_SITIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MUSEO__ID_EMPRES__70DDC3D8">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="MUSEO" Type="Self.MUSEO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MUSEO">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECORRIDO__DPI__73BA3083">
+          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="0..1" />
+          <End Role="RECORRIDO" Type="Self.RECORRIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADMINISTRADOR">
+              <PropertyRef Name="DPI" />
+            </Principal>
+            <Dependent Role="RECORRIDO">
+              <PropertyRef Name="DPI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECORRIDO__ID_EM__778AC167">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="RECORRIDO_EMPRESA" Type="Self.RECORRIDO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECORRIDO_EMPRESA">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECORRIDO__ID_RE__76969D2E">
+          <End Role="RECORRIDO" Type="Self.RECORRIDO" Multiplicity="0..1" />
+          <End Role="RECORRIDO_EMPRESA" Type="Self.RECORRIDO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECORRIDO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECORRIDO_EMPRESA">
+              <PropertyRef Name="ID_RECORRIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SITIO_TUR__ID_RE__5070F446">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="0..1" />
+          <End Role="SITIO_TURISTICO" Type="Self.SITIO_TURISTICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SITIO_TURISTICO">
+              <PropertyRef Name="ID_REGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="INSTITUTO_DE_TURISMOModelStoreContainer">
+          <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATALOGO_HOTEL" EntityType="Self.CATALOGO_HOTEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATALOGO_RESTAURANTE" EntityType="Self.CATALOGO_RESTAURANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPRESA_RESTAURANTE" EntityType="Self.EMPRESA_RESTAURANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESPECIALIDAD" EntityType="Self.ESPECIALIDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FOTO_EMPRESA" EntityType="Self.FOTO_EMPRESA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FOTO_SITIO" EntityType="Self.FOTO_SITIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUSEO" EntityType="Self.MUSEO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECORRIDO" EntityType="Self.RECORRIDO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECORRIDO_EMPRESA" EntityType="Self.RECORRIDO_EMPRESA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SITIO_TURISTICO" EntityType="Self.SITIO_TURISTICO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_EMPRESA" EntityType="Self.TIPO_EMPRESA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ADMINISTR__ID_RO__4BAC3F29" Association="Self.FK__ADMINISTR__ID_RO__4BAC3F29">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CATALOGO___ID_EM__6E01572D" Association="Self.FK__CATALOGO___ID_EM__6E01572D">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CATALOGO_HOTEL" EntitySet="CATALOGO_HOTEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CATALOGO___ID_ES__6754599E" Association="Self.FK__CATALOGO___ID_ES__6754599E">
+            <End Role="ESPECIALIDAD" EntitySet="ESPECIALIDAD" />
+            <End Role="CATALOGO_RESTAURANTE" EntitySet="CATALOGO_RESTAURANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CATALOGO___ID_RE__66603565" Association="Self.FK__CATALOGO___ID_RE__66603565">
+            <End Role="EMPRESA_RESTAURANTE" EntitySet="EMPRESA_RESTAURANTE" />
+            <End Role="CATALOGO_RESTAURANTE" EntitySet="CATALOGO_RESTAURANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CATALOGO___ID_SE__6D0D32F4" Association="Self.FK__CATALOGO___ID_SE__6D0D32F4">
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+            <End Role="CATALOGO_HOTEL" EntitySet="CATALOGO_HOTEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPRESA__ID_REGI__5AEE82B9" Association="Self.FK__EMPRESA__ID_REGI__5AEE82B9">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPRESA__ID_TIPO__59FA5E80" Association="Self.FK__EMPRESA__ID_TIPO__59FA5E80">
+            <End Role="TIPO_EMPRESA" EntitySet="TIPO_EMPRESA" />
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPRESA_R__ID_EM__60A75C0F" Association="Self.FK__EMPRESA_R__ID_EM__60A75C0F">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="EMPRESA_RESTAURANTE" EntitySet="EMPRESA_RESTAURANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FOTO_EMPR__ID_EM__5DCAEF64" Association="Self.FK__FOTO_EMPR__ID_EM__5DCAEF64">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="FOTO_EMPRESA" EntitySet="FOTO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FOTO_SITI__ID_SI__160F4887" Association="Self.FK__FOTO_SITI__ID_SI__160F4887">
+            <End Role="SITIO_TURISTICO" EntitySet="SITIO_TURISTICO" />
+            <End Role="FOTO_SITIO" EntitySet="FOTO_SITIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MUSEO__ID_EMPRES__70DDC3D8" Association="Self.FK__MUSEO__ID_EMPRES__70DDC3D8">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="MUSEO" EntitySet="MUSEO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECORRIDO__DPI__73BA3083" Association="Self.FK__RECORRIDO__DPI__73BA3083">
+            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
+            <End Role="RECORRIDO" EntitySet="RECORRIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECORRIDO__ID_EM__778AC167" Association="Self.FK__RECORRIDO__ID_EM__778AC167">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="RECORRIDO_EMPRESA" EntitySet="RECORRIDO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECORRIDO__ID_RE__76969D2E" Association="Self.FK__RECORRIDO__ID_RE__76969D2E">
+            <End Role="RECORRIDO" EntitySet="RECORRIDO" />
+            <End Role="RECORRIDO_EMPRESA" EntitySet="RECORRIDO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SITIO_TUR__ID_RE__5070F446" Association="Self.FK__SITIO_TUR__ID_RE__5070F446">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="SITIO_TURISTICO" EntitySet="SITIO_TURISTICO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="INSTITUTO_DE_TURISMOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMINISTRADOR">
+          <Key>
+            <PropertyRef Name="DPI" />
+          </Key>
+          <Property Name="DPI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASS" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ID_ROL" Type="Int32" />
+          <NavigationProperty Name="ROL" Relationship="Self.FK__ADMINISTR__ID_RO__4BAC3F29" FromRole="ADMINISTRADOR" ToRole="ROL" />
+          <NavigationProperty Name="RECORRIDO" Relationship="Self.FK__RECORRIDO__DPI__73BA3083" FromRole="ADMINISTRADOR" ToRole="RECORRIDO" />
+        </EntityType>
+        <EntityType Name="CATALOGO_HOTEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VALIDACION" Type="Boolean" />
+          <Property Name="ID_SERVICIO" Type="Int32" />
+          <Property Name="ID_EMPRESA" Type="Int32" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK__CATALOGO___ID_EM__6E01572D" FromRole="CATALOGO_HOTEL" ToRole="EMPRESA" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.FK__CATALOGO___ID_SE__6D0D32F4" FromRole="CATALOGO_HOTEL" ToRole="SERVICIO" />
+        </EntityType>
+        <EntityType Name="CATALOGO_RESTAURANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VALIDACION" Type="Boolean" />
+          <Property Name="ID_RESTAURANTE" Type="Int32" />
+          <Property Name="ID_ESPECIALIDAD" Type="Int32" />
+          <NavigationProperty Name="ESPECIALIDAD" Relationship="Self.FK__CATALOGO___ID_ES__6754599E" FromRole="CATALOGO_RESTAURANTE" ToRole="ESPECIALIDAD" />
+          <NavigationProperty Name="EMPRESA_RESTAURANTE" Relationship="Self.FK__CATALOGO___ID_RE__66603565" FromRole="CATALOGO_RESTAURANTE" ToRole="EMPRESA_RESTAURANTE" />
+        </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="Boolean" />
+          <Property Name="APROBADO" Type="Boolean" />
+          <Property Name="ID_TIPO" Type="Int32" />
+          <Property Name="ID_REGION" Type="Int32" />
+          <NavigationProperty Name="CATALOGO_HOTEL" Relationship="Self.FK__CATALOGO___ID_EM__6E01572D" FromRole="EMPRESA" ToRole="CATALOGO_HOTEL" />
+          <NavigationProperty Name="REGION" Relationship="Self.FK__EMPRESA__ID_REGI__5AEE82B9" FromRole="EMPRESA" ToRole="REGION" />
+          <NavigationProperty Name="TIPO_EMPRESA" Relationship="Self.FK__EMPRESA__ID_TIPO__59FA5E80" FromRole="EMPRESA" ToRole="TIPO_EMPRESA" />
+          <NavigationProperty Name="EMPRESA_RESTAURANTE" Relationship="Self.FK__EMPRESA_R__ID_EM__60A75C0F" FromRole="EMPRESA" ToRole="EMPRESA_RESTAURANTE" />
+          <NavigationProperty Name="FOTO_EMPRESA" Relationship="Self.FK__FOTO_EMPR__ID_EM__5DCAEF64" FromRole="EMPRESA" ToRole="FOTO_EMPRESA" />
+          <NavigationProperty Name="MUSEO" Relationship="Self.FK__MUSEO__ID_EMPRES__70DDC3D8" FromRole="EMPRESA" ToRole="MUSEO" />
+          <NavigationProperty Name="RECORRIDO_EMPRESA" Relationship="Self.FK__RECORRIDO__ID_EM__778AC167" FromRole="EMPRESA" ToRole="RECORRIDO_EMPRESA" />
+        </EntityType>
+        <EntityType Name="EMPRESA_RESTAURANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HORA_I" Type="Time" Precision="7" />
+          <Property Name="HORA_F" Type="Time" Precision="7" />
+          <Property Name="ID_EMPRESA" Type="Int32" />
+          <NavigationProperty Name="CATALOGO_RESTAURANTE" Relationship="Self.FK__CATALOGO___ID_RE__66603565" FromRole="EMPRESA_RESTAURANTE" ToRole="CATALOGO_RESTAURANTE" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK__EMPRESA_R__ID_EM__60A75C0F" FromRole="EMPRESA_RESTAURANTE" ToRole="EMPRESA" />
+        </EntityType>
+        <EntityType Name="ESPECIALIDAD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CATALOGO_RESTAURANTE" Relationship="Self.FK__CATALOGO___ID_ES__6754599E" FromRole="ESPECIALIDAD" ToRole="CATALOGO_RESTAURANTE" />
+        </EntityType>
+        <EntityType Name="FOTO_EMPRESA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DIRECCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TITULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_EMPRESA" Type="Int32" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK__FOTO_EMPR__ID_EM__5DCAEF64" FromRole="FOTO_EMPRESA" ToRole="EMPRESA" />
+        </EntityType>
+        <EntityType Name="MUSEO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HORA_INICIO" Type="Time" Precision="7" />
+          <Property Name="HORA_FIN" Type="Time" Precision="7" />
+          <Property Name="TARIFA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_EMPRESA" Type="Int32" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK__MUSEO__ID_EMPRES__70DDC3D8" FromRole="MUSEO" ToRole="EMPRESA" />
+        </EntityType>
+        <EntityType Name="RECORRIDO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_I" Type="DateTime" Precision="3" />
+          <Property Name="FECHA_F" Type="DateTime" Precision="3" />
+          <Property Name="DPI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ADMINISTRADOR" Relationship="Self.FK__RECORRIDO__DPI__73BA3083" FromRole="RECORRIDO" ToRole="ADMINISTRADOR" />
+          <NavigationProperty Name="RECORRIDO_EMPRESA" Relationship="Self.FK__RECORRIDO__ID_RE__76969D2E" FromRole="RECORRIDO" ToRole="RECORRIDO_EMPRESA" />
+        </EntityType>
+        <EntityType Name="RECORRIDO_EMPRESA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_RECORRIDO" Type="Int32" />
+          <Property Name="ID_EMPRESA" Type="Int32" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK__RECORRIDO__ID_EM__778AC167" FromRole="RECORRIDO_EMPRESA" ToRole="EMPRESA" />
+          <NavigationProperty Name="RECORRIDO" Relationship="Self.FK__RECORRIDO__ID_RE__76969D2E" FromRole="RECORRIDO_EMPRESA" ToRole="RECORRIDO" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK__EMPRESA__ID_REGI__5AEE82B9" FromRole="REGION" ToRole="EMPRESA" />
+          <NavigationProperty Name="SITIO_TURISTICO" Relationship="Self.FK__SITIO_TUR__ID_RE__5070F446" FromRole="REGION" ToRole="SITIO_TURISTICO" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ADMINISTRADOR" Relationship="Self.FK__ADMINISTR__ID_RO__4BAC3F29" FromRole="ROL" ToRole="ADMINISTRADOR" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CATALOGO_HOTEL" Relationship="Self.FK__CATALOGO___ID_SE__6D0D32F4" FromRole="SERVICIO" ToRole="CATALOGO_HOTEL" />
+        </EntityType>
+        <EntityType Name="SITIO_TURISTICO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ID_REGION" Type="Int32" />
+          <NavigationProperty Name="REGION" Relationship="Self.FK__SITIO_TUR__ID_RE__5070F446" FromRole="SITIO_TURISTICO" ToRole="REGION" />
+          <NavigationProperty Name="FOTO_SITIO" Relationship="INSTITUTO_DE_TURISMOModel.FK__FOTO_SITI__ID_SI__160F4887" FromRole="SITIO_TURISTICO" ToRole="FOTO_SITIO" />
+        </EntityType>
+        <EntityType Name="TIPO_EMPRESA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK__EMPRESA__ID_TIPO__59FA5E80" FromRole="TIPO_EMPRESA" ToRole="EMPRESA" />
+        </EntityType>
+        <Association Name="FK__ADMINISTR__ID_RO__4BAC3F29">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
+          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ADMINISTRADOR">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECORRIDO__DPI__73BA3083">
+          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="0..1" />
+          <End Role="RECORRIDO" Type="Self.RECORRIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADMINISTRADOR">
+              <PropertyRef Name="DPI" />
+            </Principal>
+            <Dependent Role="RECORRIDO">
+              <PropertyRef Name="DPI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CATALOGO___ID_EM__6E01572D">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="CATALOGO_HOTEL" Type="Self.CATALOGO_HOTEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATALOGO_HOTEL">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CATALOGO___ID_SE__6D0D32F4">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="0..1" />
+          <End Role="CATALOGO_HOTEL" Type="Self.CATALOGO_HOTEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATALOGO_HOTEL">
+              <PropertyRef Name="ID_SERVICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CATALOGO___ID_ES__6754599E">
+          <End Role="ESPECIALIDAD" Type="Self.ESPECIALIDAD" Multiplicity="0..1" />
+          <End Role="CATALOGO_RESTAURANTE" Type="Self.CATALOGO_RESTAURANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESPECIALIDAD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATALOGO_RESTAURANTE">
+              <PropertyRef Name="ID_ESPECIALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CATALOGO___ID_RE__66603565">
+          <End Role="EMPRESA_RESTAURANTE" Type="Self.EMPRESA_RESTAURANTE" Multiplicity="0..1" />
+          <End Role="CATALOGO_RESTAURANTE" Type="Self.CATALOGO_RESTAURANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA_RESTAURANTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATALOGO_RESTAURANTE">
+              <PropertyRef Name="ID_RESTAURANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPRESA__ID_REGI__5AEE82B9">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="0..1" />
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPRESA">
+              <PropertyRef Name="ID_REGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPRESA__ID_TIPO__59FA5E80">
+          <End Role="TIPO_EMPRESA" Type="Self.TIPO_EMPRESA" Multiplicity="0..1" />
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPRESA">
+              <PropertyRef Name="ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPRESA_R__ID_EM__60A75C0F">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="EMPRESA_RESTAURANTE" Type="Self.EMPRESA_RESTAURANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPRESA_RESTAURANTE">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FOTO_EMPR__ID_EM__5DCAEF64">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="FOTO_EMPRESA" Type="Self.FOTO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FOTO_EMPRESA">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MUSEO__ID_EMPRES__70DDC3D8">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="MUSEO" Type="Self.MUSEO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MUSEO">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECORRIDO__ID_EM__778AC167">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+          <End Role="RECORRIDO_EMPRESA" Type="Self.RECORRIDO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECORRIDO_EMPRESA">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RECORRIDO__ID_RE__76969D2E">
+          <End Role="RECORRIDO" Type="Self.RECORRIDO" Multiplicity="0..1" />
+          <End Role="RECORRIDO_EMPRESA" Type="Self.RECORRIDO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECORRIDO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECORRIDO_EMPRESA">
+              <PropertyRef Name="ID_RECORRIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SITIO_TUR__ID_RE__5070F446">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="0..1" />
+          <End Role="SITIO_TURISTICO" Type="Self.SITIO_TURISTICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SITIO_TURISTICO">
+              <PropertyRef Name="ID_REGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="INSTITUTO_DE_TURISMOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" />
+          <EntitySet Name="CATALOGO_HOTEL" EntityType="Self.CATALOGO_HOTEL" />
+          <EntitySet Name="CATALOGO_RESTAURANTE" EntityType="Self.CATALOGO_RESTAURANTE" />
+          <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" />
+          <EntitySet Name="EMPRESA_RESTAURANTE" EntityType="Self.EMPRESA_RESTAURANTE" />
+          <EntitySet Name="ESPECIALIDAD" EntityType="Self.ESPECIALIDAD" />
+          <EntitySet Name="FOTO_EMPRESA" EntityType="Self.FOTO_EMPRESA" />
+          <EntitySet Name="MUSEO" EntityType="Self.MUSEO" />
+          <EntitySet Name="RECORRIDO" EntityType="Self.RECORRIDO" />
+          <EntitySet Name="RECORRIDO_EMPRESA" EntityType="Self.RECORRIDO_EMPRESA" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" />
+          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
+          <EntitySet Name="SITIO_TURISTICO" EntityType="Self.SITIO_TURISTICO" />
+          <EntitySet Name="TIPO_EMPRESA" EntityType="Self.TIPO_EMPRESA" />
+          <AssociationSet Name="FK__ADMINISTR__ID_RO__4BAC3F29" Association="Self.FK__ADMINISTR__ID_RO__4BAC3F29">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECORRIDO__DPI__73BA3083" Association="Self.FK__RECORRIDO__DPI__73BA3083">
+            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
+            <End Role="RECORRIDO" EntitySet="RECORRIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CATALOGO___ID_EM__6E01572D" Association="Self.FK__CATALOGO___ID_EM__6E01572D">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CATALOGO_HOTEL" EntitySet="CATALOGO_HOTEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CATALOGO___ID_SE__6D0D32F4" Association="Self.FK__CATALOGO___ID_SE__6D0D32F4">
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+            <End Role="CATALOGO_HOTEL" EntitySet="CATALOGO_HOTEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CATALOGO___ID_ES__6754599E" Association="Self.FK__CATALOGO___ID_ES__6754599E">
+            <End Role="ESPECIALIDAD" EntitySet="ESPECIALIDAD" />
+            <End Role="CATALOGO_RESTAURANTE" EntitySet="CATALOGO_RESTAURANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CATALOGO___ID_RE__66603565" Association="Self.FK__CATALOGO___ID_RE__66603565">
+            <End Role="EMPRESA_RESTAURANTE" EntitySet="EMPRESA_RESTAURANTE" />
+            <End Role="CATALOGO_RESTAURANTE" EntitySet="CATALOGO_RESTAURANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPRESA__ID_REGI__5AEE82B9" Association="Self.FK__EMPRESA__ID_REGI__5AEE82B9">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPRESA__ID_TIPO__59FA5E80" Association="Self.FK__EMPRESA__ID_TIPO__59FA5E80">
+            <End Role="TIPO_EMPRESA" EntitySet="TIPO_EMPRESA" />
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPRESA_R__ID_EM__60A75C0F" Association="Self.FK__EMPRESA_R__ID_EM__60A75C0F">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="EMPRESA_RESTAURANTE" EntitySet="EMPRESA_RESTAURANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FOTO_EMPR__ID_EM__5DCAEF64" Association="Self.FK__FOTO_EMPR__ID_EM__5DCAEF64">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="FOTO_EMPRESA" EntitySet="FOTO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MUSEO__ID_EMPRES__70DDC3D8" Association="Self.FK__MUSEO__ID_EMPRES__70DDC3D8">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="MUSEO" EntitySet="MUSEO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECORRIDO__ID_EM__778AC167" Association="Self.FK__RECORRIDO__ID_EM__778AC167">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="RECORRIDO_EMPRESA" EntitySet="RECORRIDO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RECORRIDO__ID_RE__76969D2E" Association="Self.FK__RECORRIDO__ID_RE__76969D2E">
+            <End Role="RECORRIDO" EntitySet="RECORRIDO" />
+            <End Role="RECORRIDO_EMPRESA" EntitySet="RECORRIDO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SITIO_TUR__ID_RE__5070F446" Association="Self.FK__SITIO_TUR__ID_RE__5070F446">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="SITIO_TURISTICO" EntitySet="SITIO_TURISTICO" />
+          </AssociationSet>
+          <EntitySet Name="FOTO_SITIO" EntityType="INSTITUTO_DE_TURISMOModel.FOTO_SITIO" />
+          <AssociationSet Name="FK__FOTO_SITI__ID_SI__160F4887" Association="INSTITUTO_DE_TURISMOModel.FK__FOTO_SITI__ID_SI__160F4887">
+            <End Role="SITIO_TURISTICO" EntitySet="SITIO_TURISTICO" />
+            <End Role="FOTO_SITIO" EntitySet="FOTO_SITIO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FOTO_SITIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DIRECCION" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TITULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_SITIO" Type="Int32" />
+          <NavigationProperty Name="SITIO_TURISTICO" Relationship="INSTITUTO_DE_TURISMOModel.FK__FOTO_SITI__ID_SI__160F4887" FromRole="FOTO_SITIO" ToRole="SITIO_TURISTICO" />
+        </EntityType>
+        <Association Name="FK__FOTO_SITI__ID_SI__160F4887">
+          <End Type="INSTITUTO_DE_TURISMOModel.SITIO_TURISTICO" Role="SITIO_TURISTICO" Multiplicity="0..1" />
+          <End Type="INSTITUTO_DE_TURISMOModel.FOTO_SITIO" Role="FOTO_SITIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SITIO_TURISTICO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FOTO_SITIO">
+              <PropertyRef Name="ID_SITIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="INSTITUTO_DE_TURISMOModelStoreContainer" CdmEntityContainer="INSTITUTO_DE_TURISMOEntities">
+          <EntitySetMapping Name="ADMINISTRADOR">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.ADMINISTRADOR">
+              <MappingFragment StoreEntitySet="ADMINISTRADOR">
+                <ScalarProperty Name="DPI" ColumnName="DPI" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="PASS" ColumnName="PASS" />
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATALOGO_HOTEL">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.CATALOGO_HOTEL">
+              <MappingFragment StoreEntitySet="CATALOGO_HOTEL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="VALIDACION" ColumnName="VALIDACION" />
+                <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+                <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATALOGO_RESTAURANTE">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.CATALOGO_RESTAURANTE">
+              <MappingFragment StoreEntitySet="CATALOGO_RESTAURANTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="VALIDACION" ColumnName="VALIDACION" />
+                <ScalarProperty Name="ID_RESTAURANTE" ColumnName="ID_RESTAURANTE" />
+                <ScalarProperty Name="ID_ESPECIALIDAD" ColumnName="ID_ESPECIALIDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPRESA">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.EMPRESA">
+              <MappingFragment StoreEntitySet="EMPRESA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="APROBADO" ColumnName="APROBADO" />
+                <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+                <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPRESA_RESTAURANTE">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.EMPRESA_RESTAURANTE">
+              <MappingFragment StoreEntitySet="EMPRESA_RESTAURANTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HORA_I" ColumnName="HORA_I" />
+                <ScalarProperty Name="HORA_F" ColumnName="HORA_F" />
+                <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESPECIALIDAD">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.ESPECIALIDAD">
+              <MappingFragment StoreEntitySet="ESPECIALIDAD">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOTO_EMPRESA">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.FOTO_EMPRESA">
+              <MappingFragment StoreEntitySet="FOTO_EMPRESA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUSEO">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.MUSEO">
+              <MappingFragment StoreEntitySet="MUSEO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HORA_INICIO" ColumnName="HORA_INICIO" />
+                <ScalarProperty Name="HORA_FIN" ColumnName="HORA_FIN" />
+                <ScalarProperty Name="TARIFA" ColumnName="TARIFA" />
+                <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECORRIDO">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.RECORRIDO">
+              <MappingFragment StoreEntitySet="RECORRIDO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="FECHA_I" ColumnName="FECHA_I" />
+                <ScalarProperty Name="FECHA_F" ColumnName="FECHA_F" />
+                <ScalarProperty Name="DPI" ColumnName="DPI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECORRIDO_EMPRESA">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.RECORRIDO_EMPRESA">
+              <MappingFragment StoreEntitySet="RECORRIDO_EMPRESA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_RECORRIDO" ColumnName="ID_RECORRIDO" />
+                <ScalarProperty Name="ID_EMPRESA" ColumnName="ID_EMPRESA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGION">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.REGION">
+              <MappingFragment StoreEntitySet="REGION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.ROL">
+              <MappingFragment StoreEntitySet="ROL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICIO">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.SERVICIO">
+              <MappingFragment StoreEntitySet="SERVICIO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SITIO_TURISTICO">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.SITIO_TURISTICO">
+              <MappingFragment StoreEntitySet="SITIO_TURISTICO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_EMPRESA">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.TIPO_EMPRESA">
+              <MappingFragment StoreEntitySet="TIPO_EMPRESA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOTO_SITIO">
+            <EntityTypeMapping TypeName="INSTITUTO_DE_TURISMOModel.FOTO_SITIO">
+              <MappingFragment StoreEntitySet="FOTO_SITIO">
+                <ScalarProperty Name="ID_SITIO" ColumnName="ID_SITIO" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

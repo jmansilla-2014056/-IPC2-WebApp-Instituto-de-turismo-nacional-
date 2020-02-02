@@ -1,0 +1,70 @@
+﻿@using WebHelpers.Mvc5
+<aside class="main-sidebar">
+    <section class="sidebar">
+        @* BEGIN Search *@
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        @* END Search *@
+        @* BEGIN Menu *@
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">HEADER</li>
+            <li class="@Url.IsLinkActive("Index", "REGION")">
+                <a href="@Url.Action("Index", "REGION")"><i class="fa fa-map-pin"></i> <span>Region</span></a>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-building-o"></i> <span>Empresas</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@Url.IsLinkActive("Index", "EMPRESA")">
+                        <a href="@Url.Action("Index", "EMPRESA")"><i class="fa  fa-users"></i> <span>Manejar Empresas</span></a>
+                    </li>
+                    <li class="@Url.IsLinkActive("Index", "MUSEO")">
+                        <a href="@Url.Action("Index", "MUSEO")"><i class="fa fa-bank"></i> <span>Museos</span></a>
+                    </li>
+                    <li class="@Url.IsLinkActive("Index", "CATALOGO_HOTEL")">
+                        <a href="@Url.Action("Index", "CATALOGO_HOTEL")"><i class="fa fa-suitcase"></i> <span></span>Hotel</a>
+                    </li>
+                    <li class="@Url.IsLinkActive("Index", "EMPRESA_RESTAURANTE")">
+                        <a href="@Url.Action("Index", "EMPRESA_RESTAURANTE")"><i class="fa fa-cutlery"></i> <span></span>Restaurante</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-map-signs"></i> <span>Sitio Turistico</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@Url.IsLinkActive("Index", "SITIO_TURISTICO")">
+                        <a href="@Url.Action("Index", "SITIO_TURISTICO")"><i class="fa fa-map-o"></i> <span>Manejar Sitios</span></a>
+                    </li>
+                    <li class="@Url.IsLinkActive("CREATE", "SITIO_TURISTICO")">
+                        <a href="@Url.Action("CREATE", "SITIO_TURISTICO")"><i class="fa fa-map-o"></i> <span>Agregar Sitios</span></a>
+                    </li>
+                    <li class="@Url.IsLinkActive("CREATE", "FOTO_SITIO")">
+                        <a href="@Url.Action("INDEX", "FOTO_SITIO")"><i class="fa fa-camera"></i> <span>Manejar Fotos</span></a>
+                    </li>
+                    <li class="@Url.IsLinkActive("CREATE", "FOTO_SITIO")">
+                        <a href="@Url.Action("CREATE", "FOTO_SITIO")"><i class="fa fa-camera"></i> <span>Agregar Fotos</span></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        @* END Menu *@
+    </section>
+</aside>

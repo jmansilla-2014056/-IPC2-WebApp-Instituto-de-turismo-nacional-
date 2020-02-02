@@ -1,0 +1,42 @@
+﻿@model WebInstitoTurismo.Models.EMPRESA_RESTAURANTE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EMPRESA_RESTAURANTE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HORA_I)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HORA_I)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HORA_F)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HORA_F)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPRESA.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPRESA.NOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
