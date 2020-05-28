@@ -18,6 +18,8 @@ Programación 2 (web responsive hecha en: Html, CSS, JavaScript, C# con ASP y MV
     <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_2.png" width="39%" height="39%"/>
     <br>
+    Navbar dinamico, desplegable y con iconos
+    <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_4.png" width="39%" height="39%"/>  
   </div>
 </center>
