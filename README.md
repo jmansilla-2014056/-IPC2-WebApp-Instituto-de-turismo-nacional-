@@ -1,5 +1,5 @@
 # IPC2_PY_WebApp-Instituto-de-turismo-nacional
-Programación 2 (web responsive hecha en: Html, CSS, JavaScript, C# con ASP y MVC) + Base de Datos en SQL Server
+Programación 2 (web responsive hecha en: Html, CSS, JavaScript, C# con ASP y MVC) + Base de Datos en SQL Server 
 <html>
 <center>
   <div>
@@ -21,6 +21,10 @@ Programación 2 (web responsive hecha en: Html, CSS, JavaScript, C# con ASP y MV
     Navbar dinamico, desplegable y con iconos
     <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_4.png" width="39%" height="39%"/>  
+    <br>
+    Codigo fuente en la carpeta "WebInstitoTurismo" abrir sln con Visual Studio. 
+    <br>
+    Tambien prestar atencion al archivo script.sql que debera de correr en una base de datos de SQL Server.  
   </div>
 </center>
 </html>
