@@ -3,6 +3,7 @@ Programación 2 (web responsive hecha en: Html, CSS, JavaScript, C# con ASP y MV
 <html>
 <center>
   <div>
+    <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_0.png" width="100%" height="100%"/>
     <br>
     Diferentes roles de usario habilitan diferentes funcionalidades 
