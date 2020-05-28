@@ -3,11 +3,13 @@ Programación 2 (web responsive hecha en: Html, CSS, JavaScript, C# con ASP y MV
 <html>
 <center>
   <div>
-    <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_0.png" width="100%" height="100%"/>
     <br>
-    diferentes roles de usario habilitan diferentes funcionalidades 
+    Diferentes roles de usario habilitan diferentes funcionalidades 
+    <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_3.png" width="100%" height="100%"/>
+    <br>
+    Controles y formularios con validaciones
     <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_1.png" width="39%" height="39%"/>
     <br>
