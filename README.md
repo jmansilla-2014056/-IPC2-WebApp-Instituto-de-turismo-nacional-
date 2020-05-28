@@ -6,4 +6,5 @@ Programación 2 (web responsive hecha en: Html, CSS, JavaScript, C# con ASP y MV
 <br>
 <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_1.png" style="width: 100%; height: 100%"/>
 <br>
-<center>
+<img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_2.png" style="width: 50%; height: 50%"/>
+</center>
