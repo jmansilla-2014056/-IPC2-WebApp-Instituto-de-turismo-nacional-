@@ -10,9 +10,11 @@ Programación 2 (web responsive hecha en: Html, CSS, JavaScript, C# con ASP y MV
     <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_3.png" width="100%" height="100%"/>
     <br>
-    Controles y formularios con validaciones
+    Controles y formularios con validaciones (fechas, números, etc)
     <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_1.png" width="39%" height="39%"/>
+    <br>
+    Web responsive gracias a bootstrap 3 y la plantilla AdminLte
     <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/IPC2_2.png" width="39%" height="39%"/>
     <br>
